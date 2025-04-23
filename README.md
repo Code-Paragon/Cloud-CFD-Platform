@@ -48,20 +48,17 @@ A cloud-native simulation platform designed for African students and engineers t
 bash
 git clone https://github.com/Code-Paragon/Cloud-CFD-Platform.git
 cd cloud-cfd-platform
-bash
 
-### **Terraform:**
+### Clone the repository:
 bash
 cd terraform
 terraform init
 terraform apply
-bash
 
-### **Ansible (after provisioning):**
+### Clone the repository:
 bash
 cd ansible
 ansible-playbook -i inventory playbook.yml
-bash
 
 ---
 
@@ -70,16 +67,22 @@ Default GUI access is exposed via VNC on port 5901
 
 Use a VNC client to connect to: your-ec2-ip:5901
 
+---
+
 ## 📦 Roadmap
 - [ ] Add S3 integration for simulation result storage  
 - [ ] Create web-based interface for launching simulations  
 - [ ] Build a mobile version of the control panel  
 - [ ] Support additional tools (e.g., ParaView, Gmsh, etc.)
 
+---
+
 👨‍💻 Author  
 **Mustapha Adedeji**  
 DevOps x Aerospace Engineering  
 [LinkedIn](https://www.linkedin.com/in/mustapha-adedeji-b23876209) • [Portfolio](https://sites.google.com/view/devopsbymustapha/home)
+
+---
 
 📜 License
 This project is open for educational use and research enhancement across Africa. Contact for collaboration or university partnerships.
