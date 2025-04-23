@@ -48,32 +48,33 @@ A cloud-native simulation platform designed for African students and engineers t
 ```bash
 git clone https://github.com/<your-username>/cloud-cfd-platform.git
 cd cloud-cfd-platform
-Terraform:
-bash
-Copy
-Edit
+
+### **Terraform:**
+```bash
 cd terraform
 terraform init
 terraform apply
-Ansible (after provisioning):
-bash
-Copy
-Edit
+
+### **Ansible (after provisioning):**
+```bash
 cd ansible
 ansible-playbook -i inventory playbook.yml
+
+---
+
 🌐 Accessing the GUI
 Default GUI access is exposed via VNC on port 5901
 
 Use a VNC client to connect to: your-ec2-ip:5901
 
 📦 Roadmap
- Add S3 integration for simulation result storage
+•  Add S3 integration for simulation result storage
 
- Create web-based interface for launching simulations
+•  Create web-based interface for launching simulations
 
- Build a mobile version of the control panel
+•  Build a mobile version of the control panel
 
- Support additional tools (e.g., ParaView, Gmsh, etc.)
+•  Support additional tools (e.g., ParaView, Gmsh, etc.)
 
 👨‍💻 Author
 Mustapha Adedeji
