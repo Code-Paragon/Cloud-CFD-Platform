@@ -58,7 +58,7 @@ terraform apply
 ```
 
 ### Ansible (after provisioning):
-'''
+```
 cd ansible
 ansible-playbook -i inventory playbook.yml
 ```
