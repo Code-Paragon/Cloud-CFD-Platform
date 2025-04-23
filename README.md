@@ -48,17 +48,20 @@ A cloud-native simulation platform designed for African students and engineers t
 ```
 git clone https://github.com/Code-Paragon/Cloud-CFD-Platform.git
 cd cloud-cfd-platform
+```
 
-### Clone the repository:
-bash
+### Terraform:
+```
 cd terraform
 terraform init
 terraform apply
+```
 
-### Clone the repository:
-bash
+### Ansible (after provisioning):
+'''
 cd ansible
 ansible-playbook -i inventory playbook.yml
+```
 
 ---
 
