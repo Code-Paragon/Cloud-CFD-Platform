@@ -22,27 +22,25 @@
           - tightvncserver
         state: present
 
-    - name: Add OpenFOAM repository key
-      apt_key:
-        url: https://dl.openfoam.org/gpg.key
-        state: present
+    - name: Download OpenFOAM package list script
+      get_url:
+        url: https://dl.openfoam.com/add-debian-repo.sh
+        dest: /tmp/add-debian-repo.sh
+        mode: '0755'
 
-    - name: Add OpenFOAM repository
-      apt_repository:
-        repo: "http://dl.openfoam.org/ubuntu"
-        state: present
+    - name: Run OpenFOAM package list script
+      shell: /tmp/add-debian-repo.sh
 
     - name: Install OpenFOAM
       apt:
-        name: openfoam10
+        name: openfoam2412
         state: present
         update_cache: yes
 
-    - name: Set up OpenFOAM bashrc
+    - name: Add OpenFOAM sourcing to .bashrc
       lineinfile:
         path: /home/ubuntu/.bashrc
-        line: "source /opt/openfoam10/etc/bashrc"
-        state: present
+        line: "source /opt/openfoam2412/etc/bashrc"
 
     - name: Start VNC server (initial run to create config)
       become: no
