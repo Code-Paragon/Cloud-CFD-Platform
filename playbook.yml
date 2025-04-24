@@ -1,0 +1,73 @@
+- name: Provision OpenFOAM Cloud Environment
+  hosts: openfoam
+  become: yes
+
+  tasks:
+    - name: Update and upgrade apt packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+
+    - name: Install required packages
+      apt:
+        name:
+          - build-essential
+          - curl
+          - gnupg
+          - software-properties-common
+          - wget
+          - git
+          - xfce4
+          - xfce4-goodies
+          - tightvncserver
+        state: present
+
+    - name: Add OpenFOAM repository key
+      apt_key:
+        url: https://dl.openfoam.org/gpg.key
+        state: present
+
+    - name: Add OpenFOAM repository
+      apt_repository:
+        repo: "http://dl.openfoam.org/ubuntu"
+        state: present
+
+    - name: Install OpenFOAM
+      apt:
+        name: openfoam10
+        state: present
+        update_cache: yes
+
+    - name: Set up OpenFOAM bashrc
+      lineinfile:
+        path: /home/ubuntu/.bashrc
+        line: "source /opt/openfoam10/etc/bashrc"
+        state: present
+
+    - name: Start VNC server (initial run to create config)
+      become: no
+      shell: |
+        vncserver :1
+      args:
+        creates: /home/ubuntu/.vnc
+
+    - name: Stop VNC server (so we can customize it)
+      become: no
+      shell: |
+        vncserver -kill :1
+
+    - name: Create xstartup file for VNC
+      copy:
+        dest: /home/ubuntu/.vnc/xstartup
+        content: |
+          #!/bin/sh
+          xrdb $HOME/.Xresources
+          startxfce4 &
+        owner: ubuntu
+        group: ubuntu
+        mode: '0755'
+
+    - name: Start VNC server again
+      become: no
+      shell: |
+        vncserver :1
