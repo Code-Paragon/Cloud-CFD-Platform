@@ -1,0 +1,34 @@
+
+PLAY [Provision OpenFOAM Cloud Environment] ************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [13.246.31.208]
+
+TASK [Update and upgrade apt packages] *****************************************
+ok: [13.246.31.208]
+
+TASK [Install required packages] ***********************************************
+ok: [13.246.31.208]
+
+TASK [Download OpenFOAM package list script] ***********************************
+ok: [13.246.31.208]
+
+TASK [Run OpenFOAM package list script] ****************************************
+changed: [13.246.31.208]
+
+TASK [Install OpenFOAM] ********************************************************
+ok: [13.246.31.208]
+
+TASK [Add OpenFOAM sourcing to .bashrc] ****************************************
+ok: [13.246.31.208]
+
+TASK [Start VNC server (initial run to create config)] *************************
+ok: [13.246.31.208]
+
+TASK [Stop VNC server (if running)] ********************************************
+changed: [13.246.31.208]
+
+TASK [Create xstartup file for VNC] ********************************************
+changed: [13.246.31.208]
+
+TASK [Start VNC server again] **************************************************

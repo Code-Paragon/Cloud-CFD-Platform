@@ -45,14 +45,16 @@
     - name: Start VNC server (initial run to create config)
       become: no
       shell: |
-        vncserver :1h
+        vncserver :1
       args:
         creates: /home/ubuntu/.vnc
 
-    - name: Stop VNC server (so we can customize it)
+    - name: Stop VNC server (if running)
       become: no
       shell: |
-        vncserver -kill :1
+        if pgrep Xtightvnc > /dev/null; then
+          vncserver -kill :1
+        fi
 
     - name: Create xstartup file for VNC
       copy:

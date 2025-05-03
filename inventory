@@ -1,2 +1,2 @@
 [openfoam]
-13.244.105.84 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/openfoam-fixed-key
+13.246.31.208 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/openfoam-fixed-key
